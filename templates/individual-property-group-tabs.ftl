@@ -22,24 +22,22 @@
 					</#if>
 					<#if tabCount = 1 >
 						<li role="presentation" class="active">
-							<a 
-								href="#${groupNameHtmlId?replace("/","-")}" 
+							<a 	href="#${groupNameHtmlId?replace("/","-")}" 
 								aria-controls="${groupName?capitalize}" 
 								role="tab" 
-								data-toggle="tab"
-							>
-									 ${groupName?capitalize}
+								data-toggle="tab">
+								
+								${groupName?capitalize}
 							</a>
 						</li>
 						<#assign tabCount = 2>
 					<#else>
 						<li role="presentation">
-							<a 
-								href="#${groupNameHtmlId?replace("/","-")}" 
+							<a 	href="#${groupNameHtmlId?replace("/","-")}" 
 								aria-controls="${groupName?capitalize}" 
 								role="tab" 
-								data-toggle="tab"
-							>
+								data-toggle="tab">
+								
 								${groupName?capitalize}
 							</a>
 						</li>
@@ -47,13 +45,16 @@
 				</#if>
 			</#list>
 			<#--
-			<#if (propertyGroups.all?size > 1) >
-					 <li role="presentation">
-								<a href="#${groupNameHtmlId?replace("/","-")}" aria-controls="${groupName?capitalize}" role="tab" data-toggle="tab">
-										${groupName?capitalize}
-								 </a>
-						</li>
-			</#if>
+				<#if (propertyGroups.all?size > 1) >
+					<li role="presentation">
+						<a href="#${groupNameHtmlId?replace("/","-")}" 
+							aria-controls="${groupName?capitalize}" 
+							role="tab" data-toggle="tab">
+							
+							${groupName?capitalize}
+						</a>
+					</li>
+				</#if>
 			-->
 		</ul>
 
@@ -69,26 +70,34 @@
 						role="tabpanel"
 					>
 
-					<#-- <nav id="scroller" class="scroll-up hidden" role="navigation">
+					<#--
+						<nav id="scroller" class="scroll-up hidden" role="navigation"> 
 							<a href="#branding" title="${i18n().scroll_to_menus}" >
-									<img src="${urls.images}/individual/scroll-up.gif" alt="${i18n().scroll_to_menus}" />
+								<img src="${urls.images}/individual/scroll-up.gif" alt="${i18n().scroll_to_menus}" />
 							</a>
-					</nav> -->
+						</nav> 
+					-->
 
 						<#-- Display the group heading --> 
 						<#if groupName?has_content>
-						<#--the function replaces spaces in the name with underscores, also called for the property group menu-->
-						<#assign groupNameHtmlId = p.createPropertyGroupHtmlId(groupName) >
-						 <h2 id="${groupNameHtmlId?replace("/","-")}" pgroup="tabs" class="hidden">${groupName?capitalize}</h2>
+							<#--the function replaces spaces in the name with underscores, also called for the property group menu-->
+							<#assign groupNameHtmlId = p.createPropertyGroupHtmlId(groupName) >
+							<h2 id="${groupNameHtmlId?replace("/","-")}" pgroup="tabs" class="hidden">${groupName?capitalize}</h2>
 						<#else>
 							<h2 id="properties" pgroup="tabs" class="hidden">${i18n().properties_capitalized}</h2>
-			 <#--   <section id="${groupNameHtmlId?replace("/","-")}" class="property-group" role="region" style="<#if (sectionCount > 1) >display:none<#else>display:block</#if>"> -->
+							<#--   
+								<section id="${groupNameHtmlId?replace("/","-")}" 
+									class="property-group" 
+									role="region" 
+									style="<#if (sectionCount > 1) >display:none<#else>display:block</#if>"> 
+							-->
 						</#if>
 						<div id="${groupNameHtmlId?replace("/","-")}Group">
 							<#-- List the properties in the group   -->
 							<#include "individual-properties.ftl">
 						</div>
-					</div> <!-- end property-group -->
+					</div> 
+					<!-- end property-group -->
 					<#assign sectionCount = 2 >
 				</#if>
 			</#list>

@@ -8,8 +8,7 @@
 <#import "lib-sequence.ftl" as s>
 <@showAddress statement />
 
-<#-- Use a macro to keep variable assignments local; otherwise the values carry over to the
-     next statement -->
+<#-- Use a macro to keep variable assignments local; otherwise the values carry over to the next statement -->
 <#macro showAddress statement>
  
     <#if statement.street?has_content>
@@ -30,33 +29,46 @@
         <#local cityState><@s.join [statement.locality!, statement.region!], ", " /></#local>                      
         <#local cityStateZip><@s.join [ cityState!, statement.postalCode!], "&nbsp;" /></#local>
         <#if cityStateZip?has_content>
-		<p class="address-line">
-			${cityStateZip}
-		</p>
-		<p class="address-line">
-			${statement.country!}
-		</p>
+	  <p class="address-line">
+	    ${cityStateZip}
+	  </p>
+	  <p class="address-line">
+	    ${statement.country!}
+	  </p>
      	</#if>
-    <#else>        
-        <#if statement.locality?has_content>
-            <p class="address-line">
-                ${statement.locality}
-            </p>
-        </#if>    
-        <#if statement.region?has_content>
-            <p class="address-line">
-                ${statement.region}
-            </p>
-        </#if>    
-        <#if statement.postalCode?has_content>
-            <p class="address-line">   
-                ${statement.postalCode}
-            </p>
-        </#if>    
-        <#if statement.country?has_content>
-            <p class="address-line">
-                ${statement.country}
-            </p>
+    <#else> 
+	<#if statement.country?has_content>
+	  <#if statement.locality?has_content>
+	      <p class="address-line">
+		  ${statement.locality}
+	      </p>
+	  </#if>    
+	  <#if statement.region?has_content>
+	      <p class="address-line">
+		  ${statement.region}
+	      </p>
+	  </#if>    
+	  <#if statement.postalCode?has_content>
+	      <p class="address-line">   
+		  ${statement.postalCode}
+	      </p>
+	  </#if>    
+	  <#if statement.country?has_content>
+	      <p class="address-line">
+		  ${statement.country}
+	      </p>
+	  </#if>
+	<#else>
+	  <#local cityState><@s.join [statement.locality!, statement.region!], ", " /></#local>                      
+	  <#local cityStateZip><@s.join [ cityState!, statement.postalCode!], "&nbsp;" /></#local>
+	  <#if cityStateZip?has_content>
+	    <p class="address-line">
+	      ${cityStateZip}
+	    </p>
+	    <p class="address-line">
+	      ${statement.country!}
+	    </p>
+	  </#if>	
         </#if>
     </#if>
           

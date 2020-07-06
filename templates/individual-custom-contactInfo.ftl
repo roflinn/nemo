@@ -16,10 +16,10 @@
 </#if> -->
 
 <#-- Wrapped the emails in a div so we can style them together -->
-<div class="emailsContainer">
-    <h4>
-        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-    </h4>
+<div class="emailsContainer" style="width:100%;text-align: left;font-size:small;">
+    <h5>
+        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <strong>E-mail</strong>
+    </h5>
     <#-- Primary Email -->    
     <@emailLinks "primaryEmail" primaryEmail />
 
@@ -28,16 +28,16 @@
 </div>
   
 <#-- Phone --> 
-
+<div class="phoneContainer" style="width:100%;text-align: left;font-size:small;">
 <#if phone?has_content> <#-- true when the property is in the list, even if not populated (when editing) -->
     <@p.addLinkWithLabel phone editable />
     <#if phone.statements?has_content> <#-- if there are any statements -->
         <ul id="individual-phone" role="list" <#if editable>style="list-style:none;margin-left:0;"</#if>>
-            <h4>
-                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-            </h4>
+            <h5>
+                <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> <strong>Phone</strong>
+            </h5>
             <#list phone.statements as statement>
-                <li role="listitem">
+                <li class="list-group-item" role="listitem" style="padding-top:2px;padding-bottom:2px;">
                     <span itemprop="telephone">${statement.number!}</span>
                     <@p.editingLinks "${phone.localName}" "${phone.name}" statement editable phone.rangeUri />
                 </li>
@@ -45,6 +45,7 @@
         </ul>
     </#if>
 </#if>
+</div>
 
 <#-- 
 <#if mailingAddress?has_content>
@@ -66,18 +67,20 @@
 	</#if>
 </#if>
  -->
- 
+
+<div class="addressContainer" style="width:100%;text-align: left;font-size:small;">
 <#if mailingAddress?has_content>
-	<@p.addLinkWithLabel mailingAddress editable />
-	<#if mailingAddress.statements?has_content> <#-- if there are any statements -->	
-		<div id="individual-address" role="list" <#if editable>style="list-style:none;margin-left:0;"</#if>>
-			<h4>
-				<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-			</h4>
-			<@p.objectProperty mailingAddress editable />
-		</div>
-	</#if>
+    <@p.addLinkWithLabel mailingAddress editable />
+    <#if mailingAddress.statements?has_content> <#-- if there are any statements -->	
+	    <div id="individual-address" role="list" <#if editable>style="list-style:none;margin-left:0;"</#if>>
+		    <h5>
+			    <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> <strong>Office Address</strong>
+		    </h5>
+		    <@p.objectProperty mailingAddress editable />
+	    </div>
+    </#if>
 </#if>
+</div>
 
 <#if officeHours?has_content>
 	<@p.addLinkWithLabel officeHours editable />
@@ -108,7 +111,7 @@
         <#if email.statements?has_content> <#-- if there are any statements -->
             <ul id="${listId}" class="individual-emails" role="list" <#if editable>style="list-style:none;margin-left:0;"</#if>>
                 <#list email.statements as statement>
-                    <li role="listitem">
+                    <li class="list-group-item" role="listitem" style="padding-top:2px;padding-bottom:2px;">
                         <a itemprop="email" class="email" href="mailto:${statement.emailAddress!}" title="${i18n().email}">
                             ${statement.emailAddress!}
                         </a>

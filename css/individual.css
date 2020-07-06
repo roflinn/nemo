@@ -22,6 +22,15 @@ Homepage colours
 .person-content .user-nav li#contactTab {
   display: none;
 }
+.person-content .user-nav li#identityTab {
+  display: none;
+}
+#BlazerID {
+  display: none;
+}
+#BlazerID-noRangeClass-List {
+  display: none;
+}
 #photo-wrapper {
   margin-bottom: 20px;
   text-align: center;
@@ -45,12 +54,15 @@ Styling for the left hand side contact info column on the individual person page
   padding-left: 0;
 }
 .share-contact span.glyphicon {
-  color: #337ab7;
-  vertical-align: top;
+  color: #1E6B53;
+  /*vertical-align: top;*/
 }
-.share-contact h5 {
+/*.share-contact h5 {
   font-size: 18px;
   margin: 2em 0 1em 0;
+}*/
+.share-contact h5 {
+  font-size: 16px;
 }
 .share-contact .emails-container {
   margin: 1em 0;
@@ -79,6 +91,10 @@ Styling for the left hand side contact info column on the individual person page
 .share-contact #mapofscience_link_container .collaboratorship-link a,
 .share-contact #coinvestigator_link_container .collaboratorship-link a {
   min-width: 165px;
+  background-image: none;
+  background-color: #1E6B53;
+  color: white;
+  text-shadow: none;
 }
 #individual-info h3 {
   font-size: 21px;
@@ -187,6 +203,7 @@ This is styling for the individual object pages i.e. Publications, grants etc
 }
 .list-group-item {
   margin-right: 10px;
+  background: transparent;
 }
 
 /* MISCELLANEOUS ------>  */

@@ -4,81 +4,97 @@
 
 <#-- Get the classgroups so they can be used to qualify searches -->
 <#macro allClassGroupNames classGroups>
-    <#list classGroups as group>
-        <#-- Only display populated class groups -->
-        <#if (group.individualCount > 0)>
-            <li role="listitem"><a href="" title="${group.uri}">${group.displayName?capitalize}</a></li>
-        </#if>
-    </#list>
+	<#list classGroups as group>
+		<#-- Only display populated class groups -->
+		<#if (group.individualCount > 0)>
+			<li role="listitem"><a href="" title="${group.uri}">${group.displayName?capitalize}</a></li>
+		</#if>
+	</#list>
 </#macro>
 
-<#-- Renders the html for the faculty member section on the home page. -->
-<#-- Works in conjunction with the homePageUtils.js file, which contains the ajax call. -->
-<#-- This macro has been edited to create a carousel using bootstrap, original macro commented below -->
 
+<!-- 
+	################################################################################
+	Renders the html for the faculty member section on the home page.
+	Works in conjunction with the homePageUtils.js file, which contains the ajax call.
+	This macro has been edited to create a carousel using bootstrap, original macro commented below
+	################################################################################
+-->
 <#macro facultyMbrHtml>
-    <section id="faculty-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-        <div id="tempSpacing">
-            <span>${i18n().loading_faculty}&nbsp;&nbsp;&nbsp;
-                <img src="${urls.images}/indicatorWhite.gif">
-            </span>
-        </div>
-        <div id="research-faculty-mbrs" class="carousel-inner" role="listbox">
-            <!-- populated via an ajax call -->
-            
-        </div>
-        <a class="left carousel-control" href="#faculty-carousel" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#faculty-carousel" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </section>
+	<section id="faculty-carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+		<div id="tempSpacing">
+			<span>${i18n().loading_faculty}&nbsp;&nbsp;&nbsp;
+				<img src="${urls.images}/indicatorWhite.gif">
+			</span>
+		</div>
+		<div id="research-faculty-mbrs" class="carousel-inner" role="listbox">
+			<!-- populated via an ajax call -->
+		</div>
+		<a class="left carousel-control" href="#faculty-carousel" role="button" data-slide="prev">
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="right carousel-control" href="#faculty-carousel" role="button" data-slide="next">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
+	</section>
 </#macro>
 
-<#-- Original Macro
-<#macro facultyMbrHtml>
-    <section id="home-faculty-mbrs" class="home-sections">
-        <h3>${i18n().faculty_capitalized}</h3>
-        <div id="tempSpacing">
-            <span>${i18n().loading_faculty}&nbsp;&nbsp;&nbsp;
-                <img src="${urls.images}/indicatorWhite.gif">
-            </span>
-        </div>
-        <div id="research-faculty-mbrs">
-            <!-- populated via an ajax call
-            <ul id="facultyThumbs">
-            </ul>
-        </div>
-    </section>
-</#macro>
- -->
+<#-- Original Macro -->
+<#-- 
+	<#macro facultyMbrHtml>
+		<section id="home-faculty-mbrs" class="home-sections">
+			<h3>${i18n().faculty_capitalized}</h3>
+			<div id="tempSpacing">
+			<span>${i18n().loading_faculty}&nbsp;&nbsp;&nbsp;
+				<img src="${urls.images}/indicatorWhite.gif">
+			</span>
+			</div>
+			<div id="research-faculty-mbrs">
+				<!-- populated via an ajax call
+				<ul id="facultyThumbs">
+				</ul>
+			</div>
+		</section>
+	</#macro>
+-->
 
-<#-- We need the faculty count in order to randomly select 4 faculty using a search query -->
+
+<!-- 
+	################################################################################
+	Faculty Count
+	We need the faculty count in order to randomly select faculty using a search query
+	################################################################################
+-->
 <#macro facultyMemberCount classGroups>
-    <#assign foundClassGroup = false />
-    <#list classGroups as group>
-        <#if (group.individualCount > 0) && group.uri?contains("people") >
-            <#list group.classes as class>
-                <#if (class.uri?contains("Person")) >
-                    <#assign foundClassGroup = true />
-                    <#if (class.individualCount > 0) >
-                        <script>var facultyMemberCount = ${class.individualCount?string?replace(",","")?replace(".","")};</script>
-                    <#else>
-                        <script>var facultyMemberCount = 0;</script>
-                    </#if>
-                </#if>
-            </#list>
-        </#if>
-     </#list>
-     <#if !foundClassGroup>
-        <script>var facultyMemberCount = 0;</script>
-    </#if>
+	<#assign foundClassGroup = false />
+	<#list classGroups as group>
+		<#if (group.individualCount > 0) && group.uri?contains("people") >
+			<#list group.classes as class>
+				<#if (class.uri?contains("Person")) >
+					<#assign foundClassGroup = true />
+					<#if (class.individualCount > 0) >
+						<script>var facultyMemberCount = ${class.individualCount?string?replace(",","")?replace(".","")};</script>
+					<#else>
+						<script>var facultyMemberCount = 0;</script>
+					</#if>
+				</#if>
+			</#list>
+		</#if>
+	</#list>
+	<#if !foundClassGroup>
+		<script>var facultyMemberCount = 0;</script>
+	</#if>
 </#macro>
 
-<#-- builds the "stats" section of the home page, i.e., class group counts -->
+
+<!-- 
+	################################################################################
+	Site Statistics
+	builds the "stats" section of the home page, i.e., class group counts
+	################################################################################
+-->
 <#macro allClassGroups classGroups>
     <#-- Loop through classGroups first so we can account for situations when all class groups are empty -->
     <#assign selected = 'class="selected" ' />
@@ -137,9 +153,13 @@
 </#macro>
 
 
-
-<#-- Renders the html for the research section on the home page. -->
-<#-- Works in conjunction with the homePageUtils.js file -->
+<!-- 
+	################################################################################
+	Research
+	Renders the html for the research section on the home page.
+	Works in conjunction with the homePageUtils.js file
+	################################################################################
+-->
 <#macro researchClasses classGroups=vClassGroups>
 <#assign foundClassGroup = false />
 <section id="home-research" class="home-sections">
@@ -172,6 +192,14 @@
 </section>
 </#macro>
 
+
+<!-- 
+	################################################################################
+	Academic Departments
+	Renders the html for the academic departments section on the home page.
+	Works in conjunction with the homePageUtils.js file
+	################################################################################
+-->
 <#-- Renders the html for the academic departments section on the home page. -->
 <#-- Works in conjunction with the homePageUtils.js file -->
 <#macro academicDeptsHtml>
@@ -198,9 +226,16 @@ var urlsBase = "${urls.base}";
 </script>
 </#macro>
 
-<#-- renders the "geographic focus" section on the home page. works in      -->
-<#-- conjunction with the homePageMaps.js and latLongJson.js files, as well -->
-<#-- as the leaflet javascript library.                                     -->
+
+
+<!-- 
+	################################################################################
+	Geographic Focus
+	renders the "geographic focus" section on the home page. works in
+	conjunction with the homePageMaps.js and latLongJson.js files, as well
+	as the leaflet javascript library.
+	################################################################################
+-->
 <#macro geographicFocusHtml>
     <section id="home-geo-focus" class="home-sections">
         <h2 class="h1">${i18n().geographic_focus}</h2>

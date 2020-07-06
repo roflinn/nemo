@@ -6,7 +6,7 @@
 <#import "lib-vivo-properties.ftl" as vp>
 
 <#assign altmetricBadgeType>medium-donut</#assign>
-<#assign altmetricDetails>right</#assign>
+<#assign altmetricDetails>left</#assign>
 
 <#assign individualProductExtensionPreHeader>
     <#include "individual-altmetric.ftl">

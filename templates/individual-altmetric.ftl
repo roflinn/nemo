@@ -17,6 +17,7 @@
                     data-doi="${doi.statements[0].value}">
                 </div>
             </div>
+<span class="__dimensions_badge_embed__" data-doi="${doi.statements[0].value}"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
         </#if>
     <#else>
         <#assign pmid = propertyGroups.getProperty("http://purl.org/ontology/bibo/pmid")!>
@@ -32,6 +33,7 @@
                              data-link-target="_blank"
                              data-pmid="${pmid.statements[0].value}"></div>
                     </div>
+<span class="__dimensions_badge_embed__" data-pmid="${pmid.statements[0].value}"></span><script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
             </#if>
         </#if>
     </#if>

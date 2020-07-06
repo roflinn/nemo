@@ -16,7 +16,8 @@
  
    <#-- ${stylesheets.add('<link rel="stylesheet" href="${urls.base}/css/visualization/visualization.css" />')} -->
     <#assign standardVisualizationURLRoot ="/visualization">
-        
+    <div class="visualizationContainer" style="width:100%;text-align: left;font-size:small;">
+        <h5><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <strong>Visualizations</strong></h5>
         <#if isAuthor>
             <#assign coAuthorIcon = "${urls.images}/visualization/coauthorship/co_author_icon.png">
             <#assign mapOfScienceIcon = "${urls.images}/visualization/mapofscience/scimap_icon.png">
@@ -30,12 +31,12 @@
             <div id="vis_container_coauthor">&nbsp;</div>
             
             <div class="collaboratorship-link-separator"></div> -->
-            <h5>Visualizations</h5>
+            <#-- <h5>Visualizations</h5> -->
             <div id="coauthorship_link_container" class="collaboratorship-link-container">
 				<#-- Replaced co author icon with glyphicon-->
                 <div class="collaboratorship-link">
-                    <a href="${coAuthorVisUrl}" title="${i18n().co_author_network}" class="btn btn-default">
-                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                    <a href="${coAuthorVisUrl}" title="${i18n().co_author_network}" class="btn btn-default btn-block">
+                        <#-- <span class="glyphicon glyphicon-education" aria-hidden="true"></span> -->
                         ${i18n().co_author_network}
                     </a>
                 </div>
@@ -46,8 +47,8 @@
   	      	<div id="mapofscience_link_container" class="collaboratorship-link-container">
             	<#-- Replaced map of science icon with glyphicon -->
                 <div class="collaboratorship-link">
-                    <a href="${mapOfScienceVisUrl}" title="${i18n().map_of_science}" class="btn btn-default">
-                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                    <a href="${mapOfScienceVisUrl}" title="${i18n().map_of_science}" class="btn btn-default btn-block">
+                        <#-- <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> -->
                         ${i18n().map_of_science_capitalized}
                     </a>
                 </div>
@@ -74,11 +75,12 @@
             <div id="coinvestigator_link_container" class="collaboratorship-link-container">
                 <#-- Replaced co-investigator icon with glyphicon -->
                 <div class="collaboratorship-link">
-                    <a href="${coInvestigatorVisUrl}" title="${i18n().co_investigator_network}" class="btn btn-default">
-                        <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span>
+                    <a href="${coInvestigatorVisUrl}" title="${i18n().co_investigator_network}" class="btn btn-default btn-block">
+                        <#-- <span class="glyphicon glyphicon-screenshot" aria-hidden="true"></span> -->
                         ${i18n().co_investigator_network_capitalized}
                     </a>
                 </div>
             </div>
         </#if>
+        </div>
 </#if>
