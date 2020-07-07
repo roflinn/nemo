@@ -233,10 +233,10 @@
 				</div>
 				<div class="col-md-3">
 					<!--
-						<a class="twitter-timeline" data-width="250" data-height="600" data-dnt="true" data-theme="dark" href="https://twitter.com/ScholarsatUAB?ref_src=twsrc%5Etfw">Tweets by ScholarsatUAB</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<a class="twitter-timeline" data-width="250" data-height="600" data-dnt="true" data-theme="dark" href="https://twitter.com/VIVOcollab?ref_src=twsrc%5Etfw">Tweets by VIVOcollab</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					-->
 					<div style="margin:0px 5px 0px 5px;width:100%;">
-						<a class="twitter-timeline" data-height="1250" data-dnt="true" data-theme="light" href="https://twitter.com/ScholarsatUAB?ref_src=twsrc%5Etfw">Tweets by ScholarsatUAB</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+						<a class="twitter-timeline" data-height="1250" data-dnt="true" data-theme="light" href="https://twitter.com/VIVOcollab?ref_src=twsrc%5Etfw">Tweets by VIVOcollab</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 					</div>
 				</div>
 			</div>

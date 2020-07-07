@@ -54,7 +54,7 @@
 								${i18n().menu_about}
 							</a>
 						</li>
-<#--
+
 						<#if urls.contact??>
 						<li role="listitem">
 							<a 
@@ -65,7 +65,7 @@
 							</a>
 						</li>
 						</#if>
--->
+<#--
 						<li role="listitem">
 							<a 
 								href="https://forms.office.com/Pages/ResponsePage.aspx?id=5J-Z2K92s0C0NR2Jd6vAjFJPNQde4ZZKpVP4yKR5B29UQVFaR1FRV0NLRVhBTjhEOUc5MEpaVU5SVS4u" 
@@ -75,10 +75,10 @@
 								${i18n().menu_contactus}
 							</a>
 						</li>
-
+-->
 						<li role="listitem">
 							<a 
-								href="https://www.uab.edu/faculty/profiles" 
+								href="${urls.base}/support" 
 								target="blank" 
 								title="${i18n().menu_support}"
 							>
