@@ -6,7 +6,7 @@
 <#assign primaryEmail = propertyGroups.pullProperty("http://purl.obolibrary.org/obo/ARG_2000028","http://www.w3.org/2006/vcard/ns#Work")!>
 <#assign addlEmail = propertyGroups.pullProperty("http://purl.obolibrary.org/obo/ARG_2000028","http://www.w3.org/2006/vcard/ns#Email")!>
 <#assign mailingAddress = propertyGroups.pullProperty("http://purl.obolibrary.org/obo/ARG_2000028","http://www.w3.org/2006/vcard/ns#Address")!>
-<#assign officeHours = propertyGroups.pullProperty("http://scholars.uab.edu/ontology/local#officehours")!>
+
 
 <#-- <#if phone?has_content || primaryEmail?has_content || addlEmail?has_content >
     <h5 class="contactInfoHeading">
